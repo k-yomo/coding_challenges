@@ -50,8 +50,8 @@ class IndianPoker
 
   def assume_hand_from_possible_hands(player, opponent_hands)
     return 'MIN' if @possible_hands[player].all? { |hand| opponent_hands.all? { |op_hand| hand < op_hand } }
-    return 'MID' if @possible_hands[player].all? { |hand| opponent_hands.all? { |op_hand| (hand > op_hand && hand < @max) || (hand < op_hand && hand > @min) } }
     return 'MAX' if @possible_hands[player].all? { |hand| opponent_hands.all? { |op_hand| hand > op_hand } }
+    return 'MID' if @possible_hands[player].all? { |hand| opponent_hands.all? { |op_hand| (hand > op_hand && hand < @max) || (hand < op_hand && hand > @min) } }
     '?'
   end
 
